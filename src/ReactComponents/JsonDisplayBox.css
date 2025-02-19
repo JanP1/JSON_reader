@@ -1,0 +1,22 @@
+.text-box-container {
+  -webkit-user-select:text;
+  user-select:text;
+  cursor: text;
+  overflow:scroll;
+  width: 70vw;
+  height: 80%;
+  background-color: #040d08;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  
+}
+
+
+.text-box {
+  display: inline-block;
+  min-width: 1140px;
+  min-height: 500px;
+  padding: 30px;
+}
