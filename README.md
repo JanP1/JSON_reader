@@ -1,7 +1,7 @@
-# Tauri + React + Typescript
+# Tauri Json Reader
+An app to read json data in chunks and load it to the screen
 
-This template should help get you started developing with Tauri, React and Typescript in Vite.
-
-## Recommended IDE Setup
-
-- [VS Code](https://code.visualstudio.com/) + [Tauri](https://marketplace.visualstudio.com/items?itemName=tauri-apps.tauri-vscode) + [rust-analyzer](https://marketplace.visualstudio.com/items?itemName=rust-lang.rust-analyzer)
+- [x] Executing a tauri command in a react component
+- [x] Reading a json file with rust and sending it as an argument to the frontend
+- [ ] Reading the json file as the user scrolls
+- [ ] Loading animations
