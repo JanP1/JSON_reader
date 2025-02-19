@@ -10,15 +10,15 @@
   background-color: #040d08;
   border-radius: 20px;
   display: flex;
-  justify-content: center;
+  justify-content:left;
   position: relative;
   
 }
 
 
 .text-box {
-  display: inline-block;
-  width: 1140px;
+  max-width: 1140px;
+  min-width: 1140px;
   height: fit-content;
   padding: 30px;
 }
