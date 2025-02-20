@@ -1,24 +1,33 @@
 import { invoke } from '@tauri-apps/api/core';
-import './JsonDisplayBox.css'
 import { useState, useEffect } from 'react'
+import './JsonDisplayBox.css'
 
-interface Content {
-  title: string;
-  text_blocks: string[];
+
+interface Style {
+  color?: string;
+  fontSize?: string;
+  fontWeight?: string;
+  width?: string;
+  borderRadius?: string;
 }
 
+interface Block {
+  content_type: "title" | "content" | "image";
+  value: string;
+  style: Style;
+}
 
 export default function JsonDisplayBox() {
 
-  const [contentList, setContentList] = useState<Content[]>([]);
+  const [blocks, setBlocks] = useState<Block[]>([]);
   const [error, setError] = useState("");
 
   useEffect(() => {
     console.log('fetchData');
     async function fetchData() {
       try {
-        const result: Content[] = await invoke("json_fetching");
-        setContentList(result);
+        const result: Block[] = await invoke("json_fetching");
+        setBlocks(result);
       } catch (error) {
         setError(`Error fetching: ${error}`) 
       }
@@ -33,19 +42,41 @@ export default function JsonDisplayBox() {
       <div className='text-box'>
         {error ? (
           <p>{error}</p>
-        ) : contentList.length > 0 ? (
-          contentList.map((content, index) => 
-          <div key={index}>
-            <h1 className='block-title'>{content.title}</h1>
-            <ul >
-              {content.text_blocks.map((text, idx) => (
-                <li key={idx} >
-                  {text}
-                </li>
-              ))}
-            </ul>
-          </div>
-        )) : (<p></p>)}
+        ) : blocks.length > 0 ? (
+          blocks.map((block, index) =>{
+            const {content_type, value, style} = block;
+
+            switch (content_type) {
+              case "title":
+                return (
+                  <h1 key={index} style={style} className="full-page-width">
+                    {value}
+                  </h1>
+              );
+
+              case "content":
+                return (
+                  <div className='content-text' key={index} style={style}>
+                    {value}
+                  </div>
+              );
+
+                case "image":
+                  return (
+                    <div className="full-page-width">
+                    <img 
+                      key={index}
+                      src={value}
+                      alt="Image not found"
+                      style={style}
+                    />
+                    </div>
+                  );
+
+                default:
+                  return null;
+            }
+          })) : (<p></p>)}
       </div>
     </div>
   );
