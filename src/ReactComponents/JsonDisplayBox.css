@@ -6,12 +6,11 @@
   cursor: text;
   overflow: auto;
   width: 70vw;
-  height: 90%;
+  height: calc(90% - 20px);
   background-color: #040d08;
   border-radius: 20px;
   display: flex;
   justify-content:left;
-  position: relative;
   
   border: solid 10px #0b2416;
 }

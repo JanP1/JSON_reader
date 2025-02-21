@@ -12,7 +12,6 @@
     "content_type": "content",
     "value": "Tauri lets you build native apps using web technologies.",
     "style": {
-      "color": "blue",
       "fontSize": "12px"
     }
   },
@@ -26,7 +25,7 @@
   },
   {
     "content_type": "image",
-    "value": "../test_image.png",
+    "value": "../tst_image.png",
     "style": {
       "width": "400px",
       "borderRadius": "8px"

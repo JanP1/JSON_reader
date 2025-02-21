@@ -12,11 +12,13 @@ body {
   height: 100vh;
   width: 100vw;
 
+  overflow: hidden;
   display: grid;
   grid-template-rows: 1fr 5fr;
 }
 
 .page-title {
+  overflow: hidden;
   grid-row: 1;
   font-size:calc(20px + 1.5vw);;
   font-weight: bold;
@@ -34,10 +36,9 @@ body {
 .container {
   overflow: hidden;
   grid-row: 2;
-  height: auto;
+  height: 100%;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: top;
-  padding-top: 20px;
 }
