@@ -46,6 +46,8 @@ export default function JsonDisplayBox() {
           blocks.map((block, index) =>{
             const {content_type, value, style} = block;
 
+            console.log("Style: ", style);
+
             switch (content_type) {
               case "title":
                 return (
@@ -56,7 +58,7 @@ export default function JsonDisplayBox() {
 
               case "content":
                 return (
-                  <div className='content-text' key={index} style={style}>
+                  <div className='content-text wrap-text' key={index} style={style}>
                     {value}
                   </div>
               );

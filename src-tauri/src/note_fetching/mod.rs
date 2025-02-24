@@ -3,6 +3,7 @@ use std::fs;
 //use tauri::command;
 
 #[derive(Serialize, Deserialize)]
+#[serde(rename_all="camelCase")]
 pub struct Style {
     color: Option<String>,
     font_size: Option<String>,

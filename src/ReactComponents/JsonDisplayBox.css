@@ -21,8 +21,6 @@
   min-width: 1140px;
   height: fit-content;
   padding: 30px;
-  display: flex;
-  flex-wrap: wrap;
 }
 
 
@@ -35,4 +33,9 @@
   width: fit-content;
 }
 
-
+.wrap-text {
+  display:inline;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
+}
